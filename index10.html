@@ -6,7 +6,11 @@
 	</head>
 	<body>
 		<div id="app">
-			<button-counter custom_title="title1 : " @clicknow="clicknow"></button-counter>
+			<!-- 父组件可以给子组件的props传递数据 -->
+			<!-- 子组件可以通过emit给父组件自定义的方法传递数据 -->
+			<button-counter custom_title="title1 : " @clicknow="clicknow">
+				<h2>hi...h2</h2>
+			</button-counter>
 			<button-counter custom_title="title2 : " @clicknow="clicknow"></button-counter>
 		</div>
 		</div>
@@ -20,7 +24,7 @@
 					}
 				},
 				// template: '<div><h1>hi...</h1><button @click="count++">{{custom_title}} You clicked me {{count}} times.</button></div>'
-				template: '<div><h1>hi...</h1><button @click="clickFun">{{custom_title}} You clicked me {{count}} times.</button></div>',
+				template: '<div><h1>hi...</h1><button @click="clickFun">{{custom_title}} You clicked me {{count}} times.</button><slot></slot></div>',
 				methods: {
 					clickFun() {
 						this.count++
