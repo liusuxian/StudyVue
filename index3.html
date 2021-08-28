@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<span>Message:{{msg}}</span><br />
+			<span v-once>这个将不会改变:{{msg}}</span><br />
+			<p>Using mustaches: {{rawHtml}}</p>
+			<p>Using v-html directive: <span v-html="rawHtml"></span></p>
+			<p v-html="rawHtml"></p>
+			<div :class="color">test...</div>
+			<p>{{number+1}}</p>
+			<p>{{ok?'YES':'NO'}}</p>
+			<p>{{message.split('').reverse().join('')}}</p>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					msg: 'hi vue',
+					rawHtml: '<span style="color:red">this is should be red</span>',
+					// color: 'red',
+					color: 'blue',
+					number: 10,
+					ok: 1,
+					message: 'vue'
+				}
+			})
+			vm.msg = 'hi ....'
+		</script>
+		<style type="text/css">
+			.red {
+				color: red;
+			}
+
+			.blue {
+				color: blue;
+				font-size: 100px;
+			}
+		</style>
+	</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<div id="example-1">
+				<input v-model="message" placeholder="edit me" />
+				<!-- p标签标记了一个段落 -->
+				<p>Message is:{{message}}</p>
+				<!-- text标签是单行文本框，不会换行。通过size属性指定显示字符的长度，
+				注意：当使用css限定了宽高，那么size属性就不再起作用。
+				value属性指定初始值，Maxlength属性指定文本框可以输入的最长长度。
+				可以通过width和height设置宽高，但是也不会增加行数 -->
+
+				<!-- textarea是多行文本输入框，文本区中可容纳无限数量的文本，
+				其中的文本的默认字体是等宽字体（通常是 Courier），
+				可以通过 cols 和 rows 属性来规定 textarea 的尺寸，
+				不过更好的办法是使用 CSS 的 height 和 width 属性。 -->
+				<textarea v-model="message2" placeholder="add multiple lines"></textarea>
+				<!-- white-space属性设置如何处理元素内的空白。
+				normal默认。空白会被浏览器忽略。
+				pre空白会被浏览器保留。其行为方式类似HTML中的<pre>标签。
+				nowrap文本不会换行，文本会在在同一行上继续，直到遇到<br>标签为止。
+				pre-wrap保留空白符序列，但是正常地进行换行。
+				pre-line合并空白符序列，但是保留换行符。
+				inherit规定应该从父元素继承white-space属性的值。 -->
+				<p style="white-space: pre-line;">{{message2}}</p>
+				<br />
+				<div style="margin-top: 20px;">
+					<!-- label标签为input元素定义标注（标记）。 -->
+					<!-- for属性规定label与哪个表单元素绑定。 -->
+					<input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
+					<label for="jack">Jack</label>
+					<input type="checkbox" id="john" value="John" v-model="checkedNames" />
+					<label for="john">John</label>
+					<input type="checkbox" id="mike" value="Mike" v-model="checkedNames" />
+					<label for="mike">Mike</label>
+					<br />
+					<span>Checked names: {{checkedNames}}</span>
+				</div>
+
+				<div style="margin-top: 20px;">
+					<input type="radio" id="one" value="One" v-model="picked" />
+					<label for="one">One</label>
+					<br />
+					<input type="radio" id="two" value="Two" v-model="picked" />
+					<label for="two">Two</label>
+					<br />
+					<span>Picked: {{picked}}</span>
+				</div>
+				<button type="button" @click="submit">提交</button>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					message: 'test',
+					message2: 'hi',
+					checkedNames: ['Jack', 'John'],
+					picked: 'Two',
+				},
+				methods: {
+					submit() {
+						console.log(this.message)
+						var postObj = {
+							msg1: this.message,
+							msg2: this.message2,
+							checkva1: this.checkedNames,
+						}
+						console.log(postObj)
+					}
+				}
+			})
+		</script>
+		<style type="text/css">
+		</style>
+	</body>
+</html>

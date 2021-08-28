@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- <ul>
+				<li v-for="item in items">
+					{{item.message}}
+				</li>
+			</ul> -->
+			<!-- <ul>
+				<li v-for="item,index in items">
+					{{index}}:{{item.message}}
+				</li>
+			</ul> -->
+			<ul>
+				<li v-for="item,index in items" :key="index">
+					{{index}}:{{item.message}}
+				</li>
+			</ul>
+			<!-- <ul>
+				<li v-for="value in object">
+					{{value}}
+				</li>
+			</ul> -->
+			<!-- <ul>
+				<li v-for="value,key in object">
+					{{key}}:{{value}}
+				</li>
+			</ul> -->
+			<ul>
+				<li v-for="value,key in object" :key="key">
+					{{key}}:{{value}}
+				</li>
+			</ul>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					items: [{
+							message: 'Foo'
+						},
+						{
+							message: 'Bar'
+						}
+					],
+					object: {
+						title: 'How to do lists in vue',
+						author: 'Jane Doe',
+						publishedAt: '2016-04-10',
+					}
+				},
+			})
+		</script>
+		<style type="text/css">
+		</style>
+	</body>
+</html>

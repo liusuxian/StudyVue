@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<p v-if="seen">现在你看到我了</p>
+			<a :href="url">...</a>
+			<div @click="click1">
+				<div @click.stop="click2">
+					click me
+				</div>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					seen: true,
+					url: "https://www.baidu.com",
+				},
+				methods: {
+					click1() {
+						console.log('click1......')
+					},
+					click2() {
+						console.log('click2......')
+					}
+				}
+			})
+		</script>
+		<style type="text/css">
+		</style>
+	</body>
+</html>
